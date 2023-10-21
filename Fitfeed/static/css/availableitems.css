@@ -1,0 +1,63 @@
+td, th{
+            text-align: center;
+            border: 0.5px solid black;
+            margin:0px;
+       }
+th {
+    color: floralwhite;
+}
+
+table {
+         border-collapse: collapse;
+         margin-top: 13vh;
+         width: 70vw;
+      }
+
+#table-button-row {
+    width: 60px;
+    border: none;
+   }
+#consumeditemform {
+    position: absolute;
+    top: 60vh;
+    left: 50vw;
+}
+
+#consumeditemform label{
+    position: relative;
+    top: -25px;
+}
+#consumeditembutton {
+    background: lightgreen;
+    width:60%;
+    top: -70px;
+    position: relative;
+    left: 160px;
+}
+
+#newitemform {
+    width: 10vw;
+    position: relative;
+    left: 20vw;
+    text-align: left;
+    }
+
+label {
+    font-weight: bold;
+}
+#newitembutton {
+    position:relative;
+    left: 20px;
+    width: 10vw;
+    text-align: center;
+    background: lightgreen;
+    }
+
+thead > tr {
+    background: #333;
+    }
+
+
+
+
+

@@ -1,0 +1,29 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ERROR</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/headerstatic.css' %}">
+    <style>
+        body > h2 {
+            text-align: center;
+            margin: 25vh 0 10vh 0;
+            color: coral;
+            }
+
+        form {
+            text-align: center;
+            }
+        button {
+            background: lightgreen;
+            }
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+<h2>Same food item cannot be added again.Please delete or modify the existing item</h2>
+<form method="get" action="/availableitems">
+    <button type="submit">Add different item</button>
+</form>
+</body>
+</html>

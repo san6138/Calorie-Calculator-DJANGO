@@ -1,0 +1,91 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/headerstatic.css' %}">
+    <style>
+        #calorie-description {
+            display:flex;
+            justify-content: space-around;
+            }
+
+        table {
+            width: 70vw;
+            border: 1px solid black;
+            border-collapse: collapse;
+            }
+
+        body > p{
+            margin: 15vh 0 5vh 10vw;
+            font-size: 1.7em;
+            }
+        .calorie-desc{
+            font-size:1.2em;
+            }
+
+        td, th{
+            text-align: center;
+            border: 0.5px solid black;
+            }
+
+<!--        table {-->
+<!--            border-collapse: collapse;-->
+<!--            }-->
+
+        button {
+            margin-left:184px;
+            background: cornsilk;
+
+
+    </style>
+</head>
+
+<body>
+
+    {% include 'header.html' %}
+    <p>Total number of items consumed: {{ items_consumed }}</p>
+    <div id="calorie-description">
+        <p class="calorie-desc">Calorie limit: {{ calorie_limit }}</p>
+        <p class="calorie-desc">Calories consumed: {{ total_calories }}</p>
+        <p class="calorie-desc">Calories Left: {{ calories_left }}</p>
+    </div>
+    <table align="center">
+        <caption>
+            <h2>Items Consumed</h2>
+        </caption>
+        <thead>
+            <tr>
+                <th>Food Item</th>
+                <th>Calories</th>
+                <th>Carbohydrates</th>
+                <th>Fats</th>
+                <th>Protein</th>
+                <th>Sugar</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in fooditems %}
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td>{{item.calories}}</td>
+                    <td>{{item.carbohydrates}}</td>
+                    <td>{{item.fats}}</td>
+                    <td>{{item.protein}}</td>
+                    <td>{{item.sugar}}</td>
+                    <td>{{item.quantity}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<!--    url 'your_view_name' %}-->
+    <form method="get" action="/availableitems/">
+    {% csrf_token %}
+    <button type="submit">Add</button>
+    </form>
+
+
+
+</body>
+</html>

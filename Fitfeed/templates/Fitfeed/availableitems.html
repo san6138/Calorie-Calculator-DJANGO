@@ -1,0 +1,60 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fooditems</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/headerstatic.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/availableitems.css' %}">
+
+</head>
+<body>
+    {% include 'header.html' %}
+    <main>
+
+        <table align="center">
+            <caption>
+                <h2>Available Food Items</h2>
+            </caption>
+            <thead>
+            <tr >
+                <th>Food Item</th>
+                <th>Calories</th>
+                <th>Carbohydrates</th>
+                <th>Fats</th>
+                <th>Protein</th>
+                <th>Sugar</th>
+            </tr>
+            </thead>
+        <tbody>
+            {% for item in available_items %}
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td>{{item.calories}}</td>
+                    <td>{{item.carbohydrates}}</td>
+                    <td>{{item.fats}}</td>
+                    <td>{{item.protein}}</td>
+                    <td>{{item.sugar}}</td>
+<!--                    <td id="table-button-row">-->
+<!--                    <form id="cosumeditemform" method="post" action="/addconsumeditem/">-->
+<!--                        {% csrf_token %}-->
+<!--                        <button id="consumeditembutton" type="submit">Add as Consumed</button>-->
+<!--                    </form>-->
+<!--                    </td>-->
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        <form id="newitemform" method="post" action= "/availableitems/">
+            {% csrf_token %}
+            {{addform.as_p}}
+            <button id="newitembutton" type="submit">Add New Item</button>
+        </form>
+        <form id="consumeditemform" method="post" action="/addconsumeditems/">
+             {% csrf_token %}
+             {{consumedform.as_p}}
+             <button id="consumeditembutton" type="submit">Add as Consumed</button>
+        </form>
+    </main>
+
+</body>
+</html>

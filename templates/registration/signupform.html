@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        header {
+            height: 13vh;
+            text-align: center;
+            background: lightskyblue;
+            padding: 0.5px;
+            }
+
+        #signup-form {
+            position:relative;
+            top: 10vh;
+            text-align: left;
+            margin-left: 25vw;
+            font-size: 1.2em;
+            }
+
+        #signup-form button {
+            margin-left: 7vw;
+            background: lightgreen;
+            }
+
+        #err-messages {
+            text-align: center;
+            color: red;
+            }
+    </style>
+</head>
+<body>
+     <header>
+        <div><h1>Calorie Calculator</h1></div>
+    </header>
+    <main>
+        {% if messages %}
+            {% for message in messages %}
+                <p id="err-messages">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+        <form id="signup-form" method="post" action="/signuppage/">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Create Account</button>
+        </form>
+    </main>
+</body>
+</html>

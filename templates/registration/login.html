@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        header {
+            height: 13vh;
+            text-align: center;
+            background: lightskyblue;
+            padding: 0.5px;
+            }
+        main h2{
+            text-align: center;
+            position: relative;
+            top: 10vh;
+            }
+
+        #login-form {
+            width: 30vw;
+            height:40vh;
+            margin:auto;
+            text-align: center;
+            position: relative;
+            top: 43.5vh;
+            transform: translateY(-50%);
+            }
+
+        #signup-form {
+            margin:auto;
+            text-align: center;
+            position: relative;
+            top: 8vh;
+            }
+        #signup-form button {
+            width: 10%;
+            background: lightskyblue;
+            }
+
+
+        label {
+            font-size: 1.2em;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div><h1>Calorie Calculator</h1></div>
+    </header>
+    <main>
+        <h2>{{some_msg}}</h2>
+        <form id="login-form"method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit">Log In</button>
+        </form>
+        <form id="signup-form" method="get" action="/signuppage/">
+            {% csrf_token %}
+            <button type="submit">Sign Up</button>
+        </form>
+    </main>
+</body>
+</html>
