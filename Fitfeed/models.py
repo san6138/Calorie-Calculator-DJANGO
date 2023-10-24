@@ -25,6 +25,7 @@ class Category(models.Model):
         return self.category
 
 # Creates a item with neccessary information.
+# all the information is taken per 100g
 class Fooditems(models.Model):
     name = models.CharField(max_length=255, unique=True)
     calories = models.DecimalField(max_digits=5, decimal_places=2)
@@ -41,6 +42,7 @@ class Fooditems(models.Model):
 class Consumeditems(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     fooditem = models.ManyToManyField(Fooditems)
+    quantity = models.DecimalField(max_digits=6, decimal_places=2)
 
 
 

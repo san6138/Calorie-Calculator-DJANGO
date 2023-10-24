@@ -9,6 +9,7 @@
             background: lightskyblue;
             padding: 0.5px;
             }
+
         main h2{
             text-align: center;
             position: relative;
@@ -21,7 +22,7 @@
             margin:auto;
             text-align: center;
             position: relative;
-            top: 43.5vh;
+            top: 33.5vh;
             transform: translateY(-50%);
             }
 
@@ -29,16 +30,29 @@
             margin:auto;
             text-align: center;
             position: relative;
-            top: 8vh;
+            top: 5vh;
             }
         #signup-form button {
-            width: 10%;
+            width: 20%;
             background: lightskyblue;
             }
 
 
         label {
             font-size: 1.2em;
+            }
+
+        #login-button {
+            margin-right: 2vw;
+            }
+        #login-box {
+            box-shadow: 0 0 10px;
+            background: cornsilk;
+            margin: auto;
+            height: 50vh;
+            width: 30vw;
+            margin-top: 18vh;
+
             }
     </style>
 </head>
@@ -49,15 +63,18 @@
     </header>
     <main>
         <h2>{{some_msg}}</h2>
+        <div id="login-box">
         <form id="login-form"method="post">
             {% csrf_token %}
             {{ form.as_p}}
-            <button type="submit">Log In</button>
+            <button id="Login-button" type="submit">Log In</button>
+            <small><a href="{% url 'reset_password' %}">reset your password</a></small>
         </form>
         <form id="signup-form" method="get" action="/signuppage/">
             {% csrf_token %}
             <button type="submit">Sign Up</button>
         </form>
+        </div>
     </main>
 </body>
 </html>

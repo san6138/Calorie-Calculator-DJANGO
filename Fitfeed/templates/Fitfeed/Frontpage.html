@@ -1,4 +1,5 @@
 {% load static %}
+{% load mathfilters %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,7 +36,14 @@
 
         button {
             margin-left:184px;
-            background: cornsilk;
+            background: lightgreen;
+            }
+        #units {
+            position: absolute;
+            top: 28vh;
+            left: 65vw;
+            font-size: 1.0em;
+            }
 
 
     </style>
@@ -50,6 +58,7 @@
         <p class="calorie-desc">Calories consumed: {{ total_calories }}</p>
         <p class="calorie-desc">Calories Left: {{ calories_left }}</p>
     </div>
+    <p id="units">Units: grams</p>
     <table align="center">
         <caption>
             <h2>Items Consumed</h2>
@@ -66,15 +75,15 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in fooditems %}
+            {% for item, quantity in consumed_item_qty %}
                 <tr>
-                    <td>{{item.name}}</td>
-                    <td>{{item.calories}}</td>
-                    <td>{{item.carbohydrates}}</td>
-                    <td>{{item.fats}}</td>
-                    <td>{{item.protein}}</td>
-                    <td>{{item.sugar}}</td>
-                    <td>{{item.quantity}}</td>
+                    <td>{{item.name }}</td>
+                    <td>{{item.calories|mul:quantity|div:100}}</td>
+                    <td>{{item.carbohydrates|mul:quantity|div:100}}</td>
+                    <td>{{item.fats|mul:quantity|div:100}}</td>
+                    <td>{{item.protein|mul:quantity|div:100}}</td>
+                    <td>{{item.sugar|mul:quantity|div:100}}</td>
+                    <td>{{quantity}}</td>
                 </tr>
             {% endfor %}
         </tbody>

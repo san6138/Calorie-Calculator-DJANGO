@@ -23,17 +23,12 @@ table {
     left: 50vw;
 }
 
-#consumeditemform label{
-    position: relative;
-    top: -25px;
-}
+
 #consumeditembutton {
     background: lightgreen;
     width:60%;
-    top: -70px;
-    position: relative;
-    left: 160px;
-}
+
+ }
 
 #newitemform {
     width: 10vw;
@@ -56,6 +51,13 @@ label {
 thead > tr {
     background: #333;
     }
+
+#units {
+    position: absolute;
+    top: 18vh;
+    left: 75vw;
+}
+
 
 
 

@@ -8,5 +8,6 @@ urlpatterns = [
      path('availableitems/', AvailableItemsView.as_view(), name='available_items'),
      path('addconsumeditems/', AddConsumedItemsView.as_view(), name='addconsumed_items' ),
      path('signuppage/', SignUpPageView.as_view(), name='signup_page'),
-     path('login/', CustomLoginView.as_view(), name='login')
+     path('login/', CustomLoginView.as_view(), name='login'),
+     path('resetpassword/', ResetPasswordView.as_view(), name='reset_password'),
      ]

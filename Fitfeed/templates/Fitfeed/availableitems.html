@@ -10,7 +10,7 @@
 <body>
     {% include 'header.html' %}
     <main>
-
+        <p id="units">Units: grams</p>
         <table align="center">
             <caption>
                 <h2>Available Food Items</h2>
@@ -46,7 +46,10 @@
         </table>
         <form id="newitemform" method="post" action= "/availableitems/">
             {% csrf_token %}
+<!--            <label for ="{{addform.name.id_for_label}}">Name:</label>-->
             {{addform.as_p}}
+<!--                <span>per gm</span>-->
+<!--            {{addform.as_p}}-->
             <button id="newitembutton" type="submit">Add New Item</button>
         </form>
         <form id="consumeditemform" method="post" action="/addconsumeditems/">
